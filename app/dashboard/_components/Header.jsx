@@ -7,13 +7,14 @@ import React from 'react'
 function Header() {
   return (
     <div className="flex justify-between items-center p-6 shadow-sm">
+      <Link href='/'>
       <Image
         className="hidden md:block max-h-16 w-auto"
         src="/valtech.png"
         alt="valtech"
         width={150}
         height={200}
-      />
+      /></Link>
       <div className="flex items-center justify-between md:justify-end md:gap-20 w-full">
   <div>
     <Link href="/dashboard" prefetch passHref>
