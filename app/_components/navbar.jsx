@@ -38,12 +38,13 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* <div className="flex items-center space-x-2">
-          <BookOpen className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-bold text-primary">Valtech</span>
-        </div> */}
+        
         <Link href={'/'}>
-        <Image src={'/valtech.png'} alt='valtech' width={150} height={200}></Image>
+        {/* <Image src={'/valtech.png'} alt='valtech' width={150} height={200}></Image> */}
+        <div className="flex items-center space-x-2">
+          <BookOpen className="h-8 w-8 text-primary" />
+          <span className="text-2xl font-bold text-primary">Free Course</span>
+        </div>
         </Link>
 
         {/* Desktop nav */}
@@ -52,14 +53,14 @@ export default function Navbar() {
           <a href="/explore" className="text-foreground/80 hover:text-primary transition-colors">
             Explore
           </a>
-          <a href="#features" className="text-foreground/80 hover:text-primary transition-colors">
+          <a href="/#features" className="text-foreground/80 hover:text-primary transition-colors">
             Features
           </a>
-          <a href="#how-it-works" className="text-foreground/80 hover:text-primary transition-colors">
+          <a href="/#how-it-works" className="text-foreground/80 hover:text-primary transition-colors">
             How It Works
           </a>
 
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="flex items-center text-foreground/80 hover:text-primary transition-colors">
                 Resources <ChevronDown className="ml-1 h-4 w-4" />
@@ -70,7 +71,7 @@ export default function Navbar() {
               <DropdownMenuItem>Tutorials</DropdownMenuItem>
               <DropdownMenuItem>API</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
 
           {/* <a href="#testimonials" className="text-foreground/80 hover:text-primary transition-colors">
             Testimonials
@@ -110,6 +111,9 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            <a href="/explore" className="text-foreground/80 hover:text-primary transition-colors">
+            Explore
+          </a>
             <a 
               href="#features" 
               className="text-foreground/80 hover:text-primary transition-colors py-2 border-b border-border"
@@ -124,7 +128,7 @@ export default function Navbar() {
             >
               How It Works
             </a>
-            <a 
+            {/* <a 
               href="#testimonials" 
               className="text-foreground/80 hover:text-primary transition-colors py-2 border-b border-border"
               onClick={() => setIsOpen(false)}
@@ -137,7 +141,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Pricing
-            </a>
+            </a> */}
             <div className="flex flex-col space-y-2 pt-2">
             <Link href={'/dashboard'} prefetch passHref>
               <Button variant="outline" className="w-full">

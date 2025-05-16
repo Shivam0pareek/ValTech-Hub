@@ -6,6 +6,7 @@ import { UserCourseListContext } from '../_context/UserCourseList'
 import { Button } from '@/components/ui/button'
 import { FiMenu, FiX } from 'react-icons/fi'
 import Image from 'next/image'
+import { BookOpen } from 'lucide-react'
 
 function DashboardLayout({ children }) {
   const [userCourseList, setUserCourseList] = useState([])
@@ -50,17 +51,15 @@ function DashboardLayout({ children }) {
             <Button variant="ghost" onClick={() => setOpen(true)}>
               <FiMenu className="h-6 w-6" />
             </Button>
-            <Image
-                    
-                    src="/valtech.png"
-                    alt="valtech"
-                    width={150}
-                    height={200}
-                  />
+            <div className="flex items-center space-x-2">
+          <BookOpen className="h-8 w-8 text-primary" />
+          <span className="w-full text-2xl font-bold text-primary">Free Course</span>
+        </div>
           </div>
 
           {/* Desktop Header */}
-          <Header />
+          <div className='hidden md:block'><Header /></div>
+          
 
           {/* Page Content */}
           <div className="p-6 flex-1">{children}</div>

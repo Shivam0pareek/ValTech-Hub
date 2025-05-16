@@ -19,7 +19,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <BookOpen className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold text-primary">Valtech</span>
+              <span className="text-xl font-bold text-primary">Free Course</span>
             </div>
             <p className="text-muted-foreground mb-6">
               Revolutionizing course creation with AI. Create engaging educational content with integrated YouTube videos in minutes.
@@ -48,28 +48,28 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
               {/* <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li> */}
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Testimonials</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</a></li>
+              <li><a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">How It Works</a></li>
+              {/* <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">FAQ</a></li> */}
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
+              <li><a href="/explore" className="text-muted-foreground hover:text-foreground transition-colors">Explore</a></li>
+              {/* <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Blog</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Tutorials</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">API Reference</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">API Reference</a></li> */}
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
+              {/* <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">About Us</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-foreground transition-colors">Careers</a></li> */}
+              <li><a href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-services" className="text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
             </ul>
           </div>
         </div>
@@ -79,9 +79,9 @@ export default function Footer() {
             © 2025 Valtech. All rights reserved.
           </p>
           <div className="flex space-x-4">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</a>
+            <a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
+            <a href="/terms-of-services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a>
+            {/* <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</a> */}
           </div>
         </div>
       </div>

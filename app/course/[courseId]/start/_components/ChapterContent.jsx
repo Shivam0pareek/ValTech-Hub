@@ -14,36 +14,51 @@ function ChapterContent({chapter,content}) {
     
     
   return (
-    <div className='p-10 '>
-        <h2 className='font-medium text-2xl'>{chapter?.ChapterName}</h2>
-        <p className='text-gray-500'>{chapter?.About}</p>
+    <div className="px-4 sm:px-6 md:px-10 py-6 w-full max-w-6xl mx-auto">
+    {/* Chapter Title */}
+    <h2 className="text-xl sm:text-2xl font-semibold mb-2">{chapter?.ChapterName}</h2>
+    <p className="text-gray-600 mb-4">{chapter?.About}</p>
 
-        {/* Video */}
-        <div className='flex justify-center my-6'>
-            <YouTube videoId={content?.videoID} opts={opts} />
-        </div>
+    {/* Responsive YouTube Video */}
+<div className="relative w-full pt-[56.25%] my-6"> {/* 16:9 aspect ratio */}
+  <div className="absolute top-0 left-0 w-full h-full">
+    <YouTube
+      videoId={content?.videoID}
+      opts={{
+        width: '100%',
+        height: '100%',
+        playerVars: {
+          autoplay: 0,
+        },
+      }}
+      className="w-full h-full"
+    />
+  </div>
+</div>
 
-        <div>
-            {content?.content?.sections.map((item,index)=>(
-                <div key={index} className='p-5 bg-slate-50 mb-3 rounded-lg whitespace-pre-wrap'>
-                    <h2 className='font-medium text-lg'>{item?.title}</h2>
-                    <ReactMarkdown>{item?.description}</ReactMarkdown>
-                    
-                    {item?.code_example&&<div className='p-4 mt-3 bg-slate-600 text-white rounded-md '>
-                        <pre>
-                            <code>
-                                {item?.code_example?.code?item?.code_example?.code:item?.code_example}
-                            </code>
-                        </pre>
-                    </div>}
-                    
+    {/* Chapter Sections */}
+    {content?.content?.sections?.map((item, index) => (
+        <div
+            key={index}
+            className="mb-5 p-4 sm:p-5 bg-slate-50 rounded-lg whitespace-pre-wrap"
+        >
+            <h3 className="text-lg font-medium mb-2">{item?.title}</h3>
+            <ReactMarkdown>{item?.description}</ReactMarkdown>
+
+            {item?.code_example && (
+                <div className="bg-gray-800 text-white mt-4 p-4 rounded-lg overflow-x-auto text-sm">
+                    <pre>
+                        <code>
+                            {item?.code_example?.code || item?.code_example}
+                        </code>
+                    </pre>
                 </div>
-            ))}
+            )}
         </div>
+    ))}
+</div>
 
-        {/* content */}
 
-    </div>
   )
 }
 

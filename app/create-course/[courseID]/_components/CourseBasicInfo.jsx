@@ -83,7 +83,7 @@ function CourseBasicInfo({ course, refreshData, edit = true }) {
 };
 
   return (
-    <div className="p-10 border rounded-xl shadow-sm mt-5">
+    <div className="py-10 px-4 border rounded-xl shadow-sm mt-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <h2 className="font-bold text-2xl flex-none">  {course?.courseOutput?.CourseName}
@@ -109,7 +109,7 @@ function CourseBasicInfo({ course, refreshData, edit = true }) {
               alt="placeholder"
               width={300}
               height={300}
-              className="w-full rounded-xl h-[250px] object-cover cursor-pointer"
+              className="w-full rounded-xl h-auto object-cover cursor-pointer"
             />
           </label>
           {edit&&<input

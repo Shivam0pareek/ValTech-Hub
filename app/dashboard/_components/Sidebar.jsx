@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi2";
 import { Progress } from "@/components/ui/progress"
 import { UserCourseListContext } from '@/app/_context/UserCourseList';
+import { BookOpen } from 'lucide-react';
 
 function Sidebar({ onClose }) {
   const { userCourseList } = useContext(UserCourseListContext)
@@ -24,7 +25,10 @@ function Sidebar({ onClose }) {
 
   return (
     <div className='h-full md:w-64 p-5 shadow-md bg-white'>
-      <Image src={'/valtech.png'} alt='valtech' width={160} height={100} />
+      <div className="flex items-center space-x-2">
+          <BookOpen className="h-8 w-8 text-primary" />
+          <span className="w-full text-2xl font-bold text-primary">Free Course</span>
+        </div>
       <hr className='my-5' />
 
       <ul>

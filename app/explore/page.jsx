@@ -24,11 +24,11 @@ function Explore() {
   return (
     <main className="min-h-screen bg-background">
           <Navbar />
-          <div className='my-28 mx-10'>
+          <div className='my-28 mx-4 md:mx-10 '>
         <h2 className='font-bold text-3xl'>Explore More Projects</h2>
         <p>Explore more projects build with AI by other users</p>
 
-        <div className='grid grid-cols-2 lg:grid-cols-3 gap-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
           
           {courseList?.length > 0 ? courseList?.map((course,index)=>(
             <div key={index}>
