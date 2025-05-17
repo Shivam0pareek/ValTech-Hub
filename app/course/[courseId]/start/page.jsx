@@ -17,31 +17,62 @@ function CourseStart({ params }) {
     const [chapterContent, setChapterContent] = useState();
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
-    useEffect(() => {
-        GetCourse();
-    }, []);
+   useEffect(() => {
+    GetCourse();
+}, []);
 
-    const GetCourse = async () => {
-    const result = await db.select().from(CourseList).where(eq(CourseList?.courseID, courseParams?.courseId));
+const GetCourse = async () => {
+    try {
+        const result = await db
+            .select()
+            .from(CourseList)
+            .where(eq(CourseList.courseID, courseParams?.courseId));
 
-    if (result.length > 0) {
-        const courseData = result[0];
-        setCourse(courseData);
-
-        const firstChapter = courseData?.courseOutput?.Chapters?.[0];
-        if (firstChapter) {
-            setSelectedChapter(firstChapter);
-            GetSelectedChapterContent(0);
+        if (result.length > 0) {
+            const courseData = result[0];
+            setCourse(courseData); // triggers the next useEffect
+        } else {
+            console.warn('No course found for the given ID.');
         }
+    } catch (error) {
+        console.error('Error fetching course:', error);
     }
 };
 
+useEffect(() => {
+    if (course?.courseOutput?.Chapters?.length > 0) {
+        const firstChapter = course.courseOutput.Chapters[0];
+        setSelectedChapter(firstChapter);
+        GetSelectedChapterContent(0);
+    }
+}, [course]);
+
+
+
 
     const GetSelectedChapterContent = async (chapterId) => {
-        const result = await db.select().from(Chapters).where(and(eq(Chapters.chapterID, chapterId), eq(Chapters.courseID, course?.courseID)));
-        setChapterContent(result[0]);
-        console.log('selected chapter' + result[0])
-    };
+    try {
+        const result = await db
+            .select()
+            .from(Chapters)
+            .where(
+                and(
+                    eq(Chapters.chapterID, chapterId),
+                    eq(Chapters.courseID, course?.courseID)
+                )
+            );
+
+        if (result.length > 0) {
+            setChapterContent(result[0]);
+            console.log('selected chapter:', result[0]);
+        } else {
+            console.log('No chapter found for given ID');
+        }
+    } catch (error) {
+        console.error('Error fetching chapter:', error);
+    }
+};
+
 
     return (
         <div className="h-screen flex flex-col">
@@ -70,6 +101,7 @@ function CourseStart({ params }) {
                                 key={index} 
                                 className={`cursor-pointer hover:bg-purple-50 ${selectedChapter?.ChapterName == chapter?.ChapterName && 'bg-purple-100'}`}  
                                 onClick={() => {
+                                    console.log(JSON.stringify(chapter))
                                     setSelectedChapter(chapter);
                                     GetSelectedChapterContent(index);
                                     setSidebarOpen(false); // auto close on mobile
